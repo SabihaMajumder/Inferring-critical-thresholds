@@ -32,14 +32,14 @@ The following are the steps that can be followed to obtain critical points/thres
 The data for EVI for each box is accessed from GEE and downloaded to the hard-disk for further processing. The other datasets are obtained from various sources and directly accessed in QGIS/R. See the Section 3.2 in Methods, 'Application of our method to real data' for more information on where the data were retrieved from. 
 
 Processing of data in QGIS:
-### Creating the transects
+## Creating the transects
 Transects can be created using the Layer / Create Layer / New Shapefile Layer. Using the toggle option a new polygon corresponding to the desired location and dimension of the transect can be made. Ensure that the transect is a closed polygon. 
 
-### Clipping the EVI data to the transects
+## Clipping the EVI data to the transects
 The EVI raster corresponds to data at the box-scale. To obtain EVI data for the transect, read the EVI raster and the shapefile into QGIS, then perform: Raster / Extraction / Clipper (clip to the mask, which in this case is the transect shapefile)
 This can then be read into R and matlab for further analyses / plotting. 
 
-### Creating the polygons for the 100 mm rainfall bins
+## Creating the polygons for the 100 mm rainfall bins
 Read the raster for the mean annual rainfall. Use Raster Calculator to obtain the pixels that fall within the desired data range. To do this, use '(MAR >= 1000) AND (MAR <= 1100)' (MAR = rastre for mean annual rainfall). Pixels that are TRUE for this condition are given a value 1, while those that do not meet the condition are given a value 0. Convert into a polygon (Raster / Conversion / Polygonise)
 Select the region of interest and save as shapefile (Save as)
 
@@ -51,7 +51,7 @@ Before the next step, make transects and obtain EVI/Elevation/Slope/Aspect/Soil 
 An R code (Code_to_generate_EVIfrequencies_phaseDiagram.R) to obtain the frequencies of the different EVI bins for each of the 100mm rainfall bins. This helps generate the csv file corresponding to 'PhaseDiagramFrequencies_25pc_Australia.csv' which is used in the R code below to actually generate the phase diagram. 
 An R code (PhaseDiagram.R) to use the frequency of EVI in each rainfall bin to generate the state diagrams as depicted in the paper. This file includes code to plot the modes. 
 
-We also include a code () to generate the modes that are included in the phase diagram. 
+We also include a code (Code_FindingModes.R) to identify modes. Might require some manual inspection to ensure correct modes are being returned.  
 
 ## Code to calculate the spatial variance and autocorrelation-lag 1 from the real data/transects
 Includes
