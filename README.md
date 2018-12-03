@@ -41,23 +41,24 @@ This can then be read into R and matlab for further analyses / plotting.
 
 ## Creating the polygons for the 100 mm rainfall bins
 Read the raster for the mean annual rainfall. Use Raster Calculator to obtain the pixels that fall within the desired data range. To do this, use '(MAR >= 1000) AND (MAR <= 1100)' (MAR = rastre for mean annual rainfall). Pixels that are TRUE for this condition are given a value 1, while those that do not meet the condition are given a value 0. Convert into a polygon (Raster / Conversion / Polygonise)
-Select the region of interest and save as shapefile (Save as)
+Select the region of interest and save as shapefile (Save as).
 
-## Code to generate histograms (by Krishnapriya Tamma)
+## Code to generate histograms 
+(All code by Krishnapriya Tamma)
 An R code (Histograms.R) to generate histograms from EVI data for each 100 mm rainfall bin. The EVI data can be obtained from QGIS. 
 Before the next step, make transects and obtain EVI/Elevation/Slope/Aspect/Soil data for the transects as described above (Step 1 and 2 of 'Processing data in QGIS').
 
-## Code to generate the state diagrams (phase diagrams) (by Krishnapriya Tamma)
+## Code to generate the state diagrams (phase diagrams) 
+(All code by Krishnapriya Tamma)
 An R code (Code_to_generate_EVIfrequencies_phaseDiagram.R) to obtain the frequencies of the different EVI bins for each of the 100mm rainfall bins. This helps generate the csv file corresponding to 'PhaseDiagramFrequencies_25pc_Australia.csv' which is used in the R code below to actually generate the phase diagram. 
 An R code (PhaseDiagram.R) to use the frequency of EVI in each rainfall bin to generate the state diagrams as depicted in the paper. This file includes code to plot the modes. 
-
 We also include a code (Code_FindingModes.R) to identify modes. Might require some manual inspection to ensure correct modes are being returned.  
 
 ## Code to calculate the spatial variance and autocorrelation-lag 1 from the real data/transects
 Includes
-     - Code to convert csv to txt file (by Sabiha Majumder)
-     - A matlab code (csvTodat_matrices.m) to order the data such that moving window analyses can be carried out.  
-     - Code to calculate spatial indicators (coarse_grained_indicators.cpp) 
+     - Code to convert csv to txt file (Code by Sabiha Majumder)
+     - A matlab code (Code by csvTodat_matrices.m) to order the data such that moving window analyses can be carried out.  
+     - Code to calculate spatial indicators (Code by coarse_grained_indicators.cpp) 
 
 
 
