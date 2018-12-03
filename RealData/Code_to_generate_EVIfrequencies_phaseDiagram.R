@@ -1,12 +1,12 @@
-## This code generates the frequency data used to generate fig 3
-## this frequency data forms the colour bands in the phase diagram
+## This code generates the (phase diagram) frequency data used to generate fig 3
+## this frequency data is used to generate the colour bands in the phase diagram
 
 library(raster)
 library(rgdal)
 library(fields)
 
-##################################### CAex #########################
-##### phase diagram analysis
+##################################### An example using Box-B #########################
+#####
 ## first you have to reclassify the EVI data to 5 pc intervals
 # read in the EVI map for the Box B
 caex <- raster("CAex_MODIS_EVI_2010_AfricaPolygon5.tif")
@@ -15,7 +15,7 @@ hist(caex)
 # the dataset is also provided as part of this file
 evire <- read.csv("EVI_reclass_5.csv")
 ## setwd - Africa Bimodal
-?reclassify
+
 reevi <- reclassify(caex, evire)
 plot(reevi)
 writeRaster(reevi, "CAex_EVI_reclass_5pc.tif")
@@ -41,4 +41,5 @@ for(i in 1:length(r)) {
   colnames(f) <- c("fa", "d")
 }
 
-## Repeat this for all the rainfall regimes
+## The frequencies are copied into a spreadsheet
+## Repeat this for all the rainfall regimes 
