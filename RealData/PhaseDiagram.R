@@ -1,6 +1,6 @@
 ## This code was written by Krishnapriya Tamma in 2017
 
-### Code to plot for Phase diagram (fig 4)
+### Code to plot for Phase diagram (fig 2)
 library(fields)
 
 ### AUSTRALIA; BOX A
@@ -9,9 +9,12 @@ shpa <- read.csv("Australia_polygon3_S-shapedCurve.csv", header = T)
 # this file contains the value of the modes from each histogram (obtained using Histogram.R)
 
 ## this file below contains the frequency of pixels for each EVI bin for each rainfall bin. 
-# This was generated using the clipped EVI dataset for each rainfall bin (generated in Histograms.R)
-# What one ends up with is a matrix of EVI x Rainfall and the values are frequencies. 
+# This was generated using the clipped EVI dataset for each rainfall bin (generated in Histograms.R) 
+# The code to obtain the csv below is available in Code_to_generate_EVIfrequencies_phaseDiagram.R 
+
 ph <- read.csv("PhaseDiagramFrequencies_25pc_Australia.csv", header = T, row.names = 1)
+# This code contains EVI bins as the rows and the rainfall bins as the columns, with frequency as data
+
 ph1 <- as.matrix(ph)
 pht <- t(ph1)
 colb <- c("#ffffe5", "#fff7bc", "#fee391", "#fec44f", "#fe9929", "#ec7014", "#cc4c02", "#993404", "#662506")
