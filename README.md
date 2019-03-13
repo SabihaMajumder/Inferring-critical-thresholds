@@ -1,6 +1,6 @@
 # Inferring-critical-points
 
-#Codes and Data for "Inferring critical thresholds of ecosystem transitions using spatial data", (https://doi.org/10.1101/187799)
+#Codes and Data for "Inferring critical thresholds of ecosystem transitions using spatial data", by Sabiha Majumder, Krishnapriya Tamma, Sriram Ramaswamy and Vishwesha Guttal 
 
 ## Model
 Four C++ codes (homogeneous_driver_model.cpp, gradient_driver_model.cpp, grazing_model(Kefi2007,Schneider2017).cpp, null_model.cpp) for the spatially-explicit models used in the paper to produce the spatial patterns and transitions, written by Sabiha Majumder. To run this code, use any latest linux OS. We have run this on Ubuntu 12.04. It is expected to work on other OS as well, if you have the compilers, but we haven't tested. 
